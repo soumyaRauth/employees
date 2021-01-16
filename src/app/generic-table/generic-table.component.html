@@ -1,0 +1,20 @@
+<div class="container">
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Salary</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="tableData[0]">
+      <tr *ngFor="let obj of tableData; let i=index;">
+        <th scope="row">{{i+1}}</th>
+        <td>{{obj.name}}</td>
+        <td>{{obj.age}}</td>
+        <td>{{obj.salary}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
