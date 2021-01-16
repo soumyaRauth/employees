@@ -1,4 +1,6 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, SimpleChanges, Output,EventEmitter } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-generic-table',
@@ -7,11 +9,37 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class GenericTableComponent implements OnInit {
   @Input() tableData: any;
-  constructor() { }
+  @Output() empDeleted : EventEmitter<any> = new EventEmitter();
+  constructor(private dataService:DataService,private cdr:ChangeDetectorRef) { }
 
-  ngOnChanges(){
+
+  getEmpData(){
+    this.dataService.getData().subscribe(data=>{
+      console.log(data);
+      
+    },err=>{
+      console.log(err);
+      
+    })
+  }
+
+  deleteEmployee(eid:any){
+    console.log("ID is"+ eid);
+    this.dataService.deleteData(eid).subscribe(data=>{
+      console.log(data);
+      let deleteStatus=1;
+      this.empDeleted.emit(deleteStatus);
+      // this.getEmpData();
+    },err=>{
+      console.log(err);
+      
+    })
+  }
+
+
+  ngOnChanges(changes:SimpleChanges){
     console.log("mayre chudi itihash");
-    
+    // this.tableData=console.log(changes['myInput'].currentValue);
     console.log(this.tableData);
   }
 

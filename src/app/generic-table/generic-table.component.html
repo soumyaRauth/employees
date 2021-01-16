@@ -6,6 +6,7 @@
         <th scope="col">Name</th>
         <th scope="col">Age</th>
         <th scope="col">Salary</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody *ngIf="tableData[0]">
@@ -14,6 +15,10 @@
         <td>{{obj.name}}</td>
         <td>{{obj.age}}</td>
         <td>{{obj.salary}}</td>
+        <td>
+        <button class="btn btn-success mx-2" routerLink="edit/{{obj.id}}">Edit</button>
+        <button class="btn btn-danger" (click)="deleteEmployee(obj.id)" >Delete</button>
+        </td>
       </tr>
     </tbody>
   </table>

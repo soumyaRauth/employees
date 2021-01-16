@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "generic-table.component.scss"
+    ],
+    "names": [],
+    "file": "generic-table.component.css"
+}

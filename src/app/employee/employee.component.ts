@@ -10,7 +10,7 @@ import { Employee } from './employee.model';
 })
 export class EmployeeComponent implements OnInit {
 
-  
+  deleteFlag:boolean=true;
   employee: any=new Employee();
   employeeList:any=[];
   constructor(private dataService: DataService) {}
@@ -22,6 +22,15 @@ export class EmployeeComponent implements OnInit {
       console.log('Received data is');
       console.log(this.employeeList);
     });
+  }
+
+
+  deleteImplemented(ev:any){
+    console.log("Employee Deleted");
+    console.log(ev);
+    this.getEmployeeList();
+    this.deleteFlag=false;
+    
   }
 
 
