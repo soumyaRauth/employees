@@ -16,6 +16,11 @@ export class DataService {
   insertData(data:any){
     return this.httpClient.post('http://127.0.0.1:8000/addemployee',data)
   }
+  
+  
+  updateData(id:any,data:any){
+    return this.httpClient.patch('http://127.0.0.1:8000/updateemployee/'+id,data)
+  }
 
   deleteData(id:any){
     return this.httpClient.delete('http://127.0.0.1:8000/deleteemployee/'+id)

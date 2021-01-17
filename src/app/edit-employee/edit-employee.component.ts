@@ -29,6 +29,12 @@ export class EditEmployeeComponent implements OnInit {
 
   updateData(){
     console.log("hello");
+    this.dataService.updateData(this.employeeId,this.employee).subscribe(data=>{
+      console.log(data);
+    },err=>{
+      console.log(err);
+      
+    })
     
   }
 
